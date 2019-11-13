@@ -2,10 +2,10 @@ FROM pluswerk/puppeteer
 
 WORKDIR /app
 
-RUN yarn add convert-svg-to-png express body-parser
+COPY . /app/
 
-COPY index.mjs /app/
+RUN npm install
 
-CMD ["node", "--experimental-modules", "index.mjs"]
+CMD ["node", "index.js"]
 
-EXPOSE 3000
+EXPOSE 80

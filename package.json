@@ -1,0 +1,34 @@
+{
+  "name": "convert-svg-to-png-docker",
+  "version": "1.0.0",
+  "description": "Opinionated [convert-svg-to-png](https://github.com/NotNinja/convert-svg/tree/master/packages/convert-svg-to-png) Docker Image",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "npm start",
+    "predev": "npm install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/necccc/convert-svg-to-png-docker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/necccc/convert-svg-to-png-docker/issues"
+  },
+  "homepage": "https://github.com/necccc/convert-svg-to-png-docker#readme",
+  "dependencies": {
+    "blob-to-buffer": "^1.2.8",
+    "body-parser": "^1.19.0",
+    "convert-svg-to-png": "^0.5.0",
+    "express": "^4.17.1",
+    "image-size": "^0.8.3",
+    "isomorphic-unfetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}

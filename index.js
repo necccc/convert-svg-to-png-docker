@@ -6,7 +6,7 @@ const createSvg = require('./createSvg')
 
 const IMG_WIDTH = 600
 
-const serverPort = 3000;
+const serverPort = process.env.PORT || 80 ;
 const app = express();
 const converter = convertSvgToPng.createConverter({
   puppeteer: {
@@ -50,7 +50,7 @@ app.post('/convert', async (req, res) => {
     const setHeight = (IMG_WIDTH / size.width) * size.height
     data.image.height = setHeight
 
-    const png = await converter.convert(createSvg(data.title, data.subtitle, data.image), options);
+    const png = await converter.convert(createSvg(data.title, data.subtitle, data.colors, data.image), options);
     res.set('Content-Type', 'image/png');
     res.send(png);
   } catch (e) {

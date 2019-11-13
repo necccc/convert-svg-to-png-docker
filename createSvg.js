@@ -60,7 +60,7 @@ ${ image && `
     <rect fill="#fff" id="canvas_background" height="302" width="602" y="-1" x="-1"/>
   </g>
   <g>
-    <path id="svg_12" d="m-2,-3.5l0,291.5l605,-44l-2,-247l-603,-0.5z" fill-opacity="1" stroke-opacity="null" stroke-width="0" stroke="#fff" fill="url(#background)" />
+    <path id="svg_12" d="m-2,-3.5l0,291.5l605,-44l-2,-247l-603,-0.5z" fill-opacity="1" stroke-opacity="null" stroke-width="0" stroke="#fff" fill="${image ? 'url(#background)' : '#030303' }" />
     <g stroke="null" id="svg_9">
       <g stroke="null" transform="matrix(0.42839717683474104,0,0,0.42839717683474104,-36.53697037030645,-531.3154002437344) " id="svg_5">
         <path stroke="${colors.logo}" stroke-opacity="0" fill="${colors.logo}" id="svg_6" d="m1349.283033,1591.705491c25,-29.3 40.2,-67.2 40.2,-108.8c0,-33.3 -9.7,-64.4 -26.5,-90.4c3.3,8.1 5,17.3 5,27.6c0,10.8 -0.9,23.8 -2.8,38.8l-15.9,132.8z"/>

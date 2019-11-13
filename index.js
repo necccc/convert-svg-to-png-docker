@@ -46,11 +46,14 @@ app.post('/convert', async (req, res) => {
 
     const data = JSON.parse(req.body);
 
-    const size = await getImageSize(data.image.url)
-    const setHeight = (IMG_WIDTH / size.width) * size.height
-    data.image.height = setHeight
+    if (data.image) {
+      const size = await getImageSize(data.image.url)
+      const setHeight = (IMG_WIDTH / size.width) * size.height
+      data.image.height = setHeight
+    }
 
     const png = await converter.convert(createSvg(data.title, data.subtitle, data.colors, data.image), options);
+
     res.set('Content-Type', 'image/png');
     res.send(png);
   } catch (e) {

@@ -3,6 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const getImageSize = require('./getImageSize')
 const createSvg = require('./createSvg')
+const createSvg2x = require('./createSvg2x')
 
 const IMG_WIDTH = 600
 
@@ -18,14 +19,19 @@ app.use(bodyParser.text({
   limit: '2mb',
 }));
 
-
 app.get('/preview.svg', async (req, res) => {
   try {
-
-    const svg = createSvg('Post title', 'Subtitle text')
+    const image = {
+      url: 'https://images.unsplash.com/photo-1571586100122-0869bd6e77c9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80'
+    }
+    const colors = {
+      title: '#030303',
+      text: '#333',
+    }
+    const svg = createSvg2x('Average length blog post title goes here', 'Jan 13th, 2019', image, colors)
 
     res.set('Content-Type', 'image/svg+xml');
-    res.send(createSvg('Post title', 'Subtitle text'));
+    res.send(svg);
   } catch (e) {
     res.status(500).send(e.message);
     console.log('error', e);
@@ -52,7 +58,8 @@ app.post('/convert', async (req, res) => {
       data.image.height = setHeight
     }
 
-    const png = await converter.convert(createSvg(data.title, data.subtitle, data.colors, data.image), options);
+    const svg = createSvg2x(data.title, data.subtitle, data.image, data.colors)
+    const png = await converter.convert(svg, options)
 
     res.set('Content-Type', 'image/png');
     res.send(png);

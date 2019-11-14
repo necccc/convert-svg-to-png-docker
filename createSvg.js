@@ -9,13 +9,8 @@ module.exports = (
     title: '#fff',
     text: '#ccc',
   },
-  image = {
-    url: 'https://images.unsplash.com/photo-1573567001730-9eb49e901f40?fit=crop&amp;w=600&amp;q=80',
-    x: 0,
-    y: -85,
-    width: '100%',
-    height: 757
-  }) => (
+  image
+) => (
 `<svg width="600" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <style>
     #TitleText {

@@ -8,4 +8,4 @@ services:
     command: ["npx", "nodemon", "index.js"]
     working_dir: /usr/src/app
     ports:
-    - 3000:3000
+    - 3000:80
